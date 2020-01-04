@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Contracts\Auth\Guard;
 use Closure;
 
 class SuperAdminMiddleware
@@ -13,6 +14,14 @@ class SuperAdminMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
+    protected $auth;
+    
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
+
+
     public function handle($request, Closure $next)
     {
         if ($this->auth->getUser()->type !== "super-admin") {

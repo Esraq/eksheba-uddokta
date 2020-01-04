@@ -20,6 +20,26 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::Resource('user-dashboard','UserDashboardController');
-Route::Resource('uddokta-dashboard','UddoktaDasboardController');
-Route::Resource('super-admin','SuperAdmin');
+
+///Route::Resource('super-admin','SuperAdmin');
 Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::group(['middleware' => ['auth', 'admin']], function() {
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+});
+
+Route::group(['middleware' => ['auth', 'super-admin']], function() {
+
+   Route::Resource('super-admin','SuperAdmin');
+
+});
+
+Route::group(['middleware' => ['auth', 'uddokta']], function() {
+
+    Route::Resource('uddokta-dashboard','UddoktaDasboardController');
+
+});
+
+
