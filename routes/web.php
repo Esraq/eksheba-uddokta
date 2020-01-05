@@ -21,6 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::Resource('user-dashboard','UserDashboardController');
 
+Route::Resource('user-profile','UserProfileController');
+
+Route::resource('change-user-password','UserPasswordResetController');
+
 ///Route::Resource('super-admin','SuperAdmin');
 Route::get('/logout', 'Auth\LoginController@logout');
 

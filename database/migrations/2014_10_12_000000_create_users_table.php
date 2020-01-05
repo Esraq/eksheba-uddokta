@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('union');
             $table->string('upazila');
             $table->string('type');
+            $table->string('pdc');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

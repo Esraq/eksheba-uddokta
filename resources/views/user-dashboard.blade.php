@@ -1,24 +1,6 @@
 @include('header')
 
-<nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-				<li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-					</li>
-				
-					
-                    <li>
-                        <a  href="/user-dashboard"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
-                    </li>
-                      <li>
-                        <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i> Profile</a>
-                    </li>
-                  
-               
-            </div>
-            
-        </nav>  
+@include('user-menu')
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
